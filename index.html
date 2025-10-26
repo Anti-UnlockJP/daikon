@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <label>
+      R
+      <input type="range" id="rSlider" min="0" max="255" step="1" value="255">
+    </label>
+    <label>
+      G
+      <input type="range" id="gSlider" min="0" max="255" step="1" value="0">
+    </label>
+    <label>
+      B
+      <input type="range" id="bSlider" min="0" max="255" step="1" value="0">
+    </label>
+
+    <div id="colorBox" style="width:500px; height:500px; background-color: rgb(250, 250, 250);"></div>
+
+    <script>
+      const rSlider = document.getElementById("rSlider");
+      const gSlider = document.getElementById("gSlider");
+      const bSlider = document.getElementById("bSlider");
+      const colorBox = document.getElementById("colorBox");
+
+      // スライダーが動くたびに色を更新
+      function updateColor() {
+        const r = rSlider.value;
+        const g = gSlider.value;
+        const b = bSlider.value;
+        colorBox.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
+      }
+
+      // 3つのスライダーにイベントをつける
+      rSlider.addEventListener("input", updateColor);
+      gSlider.addEventListener("input", updateColor);
+      bSlider.addEventListener("input", updateColor);
+    </script>
+  </body>
+</html>
